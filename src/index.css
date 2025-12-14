@@ -7,5 +7,25 @@ html {
 }
 
 body {
-  background-color: #020617; /* Slate 950 */
+  /* Aqui definimos o comportamento padrão (Light) e o comportamento Dark.
+     O transition-colors garante que o fundo não pisque na troca.
+  */
+  @apply bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-200 transition-colors duration-300;
+}
+
+/* Garante que a barra de rolagem combine com o tema (opcional, mas elegante) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-100 dark:bg-zinc-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-zinc-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-emerald-500;
 }
