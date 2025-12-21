@@ -6,7 +6,7 @@ import {
   Menu,
   X,
   ArrowUpRight,
-  ArrowUp, // <--- Importado aqui
+  ArrowUp,
   Monitor,
   Smartphone,
   Database,
@@ -21,8 +21,6 @@ import {
   FileText,
   Wrench
 } from 'lucide-react';
-
-// --- DADOS ESTRUTURADOS ---
 
 const skillCategories = [
   {
@@ -124,6 +122,62 @@ const portfolioData = {
   ],
   projects: [
     {
+      title: "Barber Shop Plan",
+      category: "SaaS Solution",
+      description: "Solução digital completa para gestão de barbearias, otimizando o agendamento e o fluxo de atendimento profissional.",
+      tech: ["React", "Scheduling Logic", "Modern UI"],
+      link: "https://barbershopplan.netlify.app"
+    },
+    {
+      title: "Akuma no Mi Market",
+      category: "E-commerce",
+      description: "Mercado digital especializado em Akuma no Mis, com sistema de busca por tipos Zoan, Logia e Paramecia.",
+      tech: ["React", "Tailwind", "Cart Logic"],
+      link: "https://akumanomimarket.netlify.app/"
+    },
+    {
+      title: "One Piece Quizz",
+      category: "Game",
+      description: "Desafio de conhecimentos sobre a era de ouro dos piratas com sistema de pontuação e ranking.",
+      tech: ["React", "State Management", "Animation"],
+      link: "https://one-piece-quizz.netlify.app/"
+    },
+    {
+      title: "Logpose Dashboard",
+      category: "Analytics",
+      description: "Interface de monitoramento de rotas e clima para navegação segura pela Grand Line.",
+      tech: ["Next.js", "Charts", "API Integration"],
+      link: "https://logposedashboard.netlify.app/"
+    },
+    {
+      title: "Wanted Cartaz",
+      category: "Generator Tool",
+      description: "Ferramenta de geração automática de cartazes de recompensa da Marinha com upload de imagem.",
+      tech: ["Canvas API", "React", "File System"],
+      link: "https://wantedcartaz.netlify.app/"
+    },
+    {
+      title: "Ship Constructor",
+      category: "Builder App",
+      description: "Plataforma de customização e montagem técnica de caravelas e navios de guerra.",
+      tech: ["React", "UI Components", "Logic"],
+      link: "https://shipconstructor.netlify.app/"
+    },
+    {
+      title: "Marineford Game",
+      category: "Action Game",
+      description: "Simulador de batalha épica com mecânicas de estratégia e combate em tempo real.",
+      tech: ["JavaScript", "Game Loop", "Canvas API"],
+      link: "https://marinefordgame.netlify.app/"
+    },
+    {
+      title: "AcompanhaTec",
+      category: "Government System",
+      description: "Sistema de gestão em larga escala para acompanhamento pedagógico institucional.",
+      tech: ["Next.js", "Firebase", "Analytics"],
+      link: "https://acompanhatec.educacao.ba.gov.br/"
+    },
+    {
       title: "Studio",
       category: "Creative Management",
       description: "Plataforma sofisticada para gestão de ativos criativos e fluxos de trabalho de design.",
@@ -143,40 +197,16 @@ const portfolioData = {
       description: "Central de jogos web otimizada com performance nativa e biblioteca de clássicos recriados.",
       tech: ["Canvas API", "Game Logic", "Optimization"],
       link: "https://gamecenter-bruno.netlify.app"
-    },
-    {
-      title: "AcompanhaTec",
-      category: "Government System",
-      description: "Sistema de gestão em larga escala para acompanhamento pedagógico institucional.",
-      tech: ["Next.js", "Firebase", "Analytics"],
-      link: "https://acompanhatec.educacao.ba.gov.br/"
-    },
-    {
-      title: "Barber Shop Premium",
-      category: "SaaS Platform",
-      description: "Solução vertical de agendamento e gestão financeira para o setor de estética.",
-      tech: ["React", "SaaS", "Payment"],
-      link: "https://github.com/DinDja/Barber-Shop-REACTjs-"
-    },
-    {
-      title: "RelationSHIP",
-      category: "Social Network",
-      description: "Rede social com algoritmos avançados de matching e interface fluida.",
-      tech: ["React Native", "Algorithm", "Real-time"],
-      link: "https://github.com/DinDja/Natad_Frontend_relationSHIP"
     }
   ]
 };
 
-// --- COMPONENTES ---
-
-// Componente Especial do Switch (Injetando o CSS diretamente para encapsulamento)
 const ThemeSwitch = ({ isDark, toggleTheme }) => {
   return (
     <>
       <style>{`
         .theme-switch {
-          --toggle-size: 10px; /* Ajustado para caber na Navbar */
+          --toggle-size: 10px;
           --container-width: 5.625em;
           --container-height: 2.5em;
           --container-radius: 6.25em;
@@ -338,8 +368,6 @@ const ThemeSwitch = ({ isDark, toggleTheme }) => {
           -o-transition: var(--transition);
           transition: var(--transition);
         }
-
-        /* actions */
 
         .theme-switch__checkbox:checked + .theme-switch__container {
           background-color: var(--container-night-bg);
@@ -508,12 +536,10 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            {/* Botão Primário - Ação Principal */}
             <a href="#projects" className="px-8 py-4 bg-emerald-500 text-white dark:text-zinc-950 font-bold rounded-sm hover:bg-emerald-600 dark:hover:bg-emerald-400 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
               Ver Projetos <ArrowUpRight size={18} />
             </a>
 
-            {/* Botão Secundário - Download CV */}
             <a 
               href="/bruno-andrade-cv.pdf" 
               download 
@@ -522,12 +548,11 @@ const Hero = () => {
               <FileText size={18} /> Download CV
             </a>
 
-            {/* Botão Terciário - GitHub */}
             <a 
               href={portfolioData.social.github} 
               target="_blank" 
               rel="noreferrer" 
-              className="px-8 py-4 border border-zinc-200 dark:border-zinc-800/50 text-zinc-500 dark:text-zinc-400 font-medium rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors flex items-center justify-center gap-2"
+              className="px-8 py-4 border border-zinc-200 dark:border-zinc-800/50 text-zinc-500 dark:text-zinc-400 font-medium rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:white transition-colors flex items-center justify-center gap-2"
             >
               <Github size={18} />
             </a>
@@ -798,7 +823,6 @@ const Footer = () => {
   );
 };
 
-// Componente Back To Top
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -837,10 +861,8 @@ const BackToTop = () => {
 };
 
 const App = () => {
-  // Estado para controlar o tema
   const [isDark, setIsDark] = useState(true);
 
-  // Inicializar o tema
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -854,7 +876,6 @@ const App = () => {
     }
   }, []);
 
-  // Alternar tema
   const toggleTheme = () => {
     const newMode = !isDark;
     setIsDark(newMode);
