@@ -129,44 +129,16 @@ const portfolioData = {
       link: "https://barbershopplan.netlify.app"
     },
     {
-      title: "Akuma no Mi Market",
-      category: "E-commerce",
-      description: "Mercado digital especializado em Akuma no Mis, com sistema de busca por tipos Zoan, Logia e Paramecia.",
-      tech: ["React", "Tailwind", "Cart Logic"],
-      link: "https://akumanomimarket.netlify.app/"
-    },
-    {
-      title: "One Piece Quizz",
-      category: "Game",
-      description: "Desafio de conhecimentos sobre a era de ouro dos piratas com sistema de pontuação e ranking.",
-      tech: ["React", "State Management", "Animation"],
-      link: "https://one-piece-quizz.netlify.app/"
-    },
-    {
-      title: "Logpose Dashboard",
-      category: "Analytics",
-      description: "Interface de monitoramento de rotas e clima para navegação segura pela Grand Line.",
-      tech: ["Next.js", "Charts", "API Integration"],
-      link: "https://logposedashboard.netlify.app/"
-    },
-    {
-      title: "Wanted Cartaz",
-      category: "Generator Tool",
-      description: "Ferramenta de geração automática de cartazes de recompensa da Marinha com upload de imagem.",
-      tech: ["Canvas API", "React", "File System"],
-      link: "https://wantedcartaz.netlify.app/"
-    },
-    {
-      title: "Ship Constructor",
-      category: "Builder App",
-      description: "Plataforma de customização e montagem técnica de caravelas e navios de guerra.",
-      tech: ["React", "UI Components", "Logic"],
-      link: "https://shipconstructor.netlify.app/"
-    },
-    {
       title: "Marineford Game",
       category: "Action Game",
       description: "Simulador de batalha épica com mecânicas de estratégia e combate em tempo real.",
+      tech: ["JavaScript", "Game Loop", "Canvas API"],
+      link: "https://marinefordgame.netlify.app/"
+    },
+    {
+      title: "VestQuiz",
+      category: "Action Game",
+      description: "Plataforma de estudo para o vestibular com Quiz e simulados, ranking e dicas..",
       tech: ["JavaScript", "Game Loop", "Canvas API"],
       link: "https://marinefordgame.netlify.app/"
     },
@@ -402,11 +374,11 @@ const ThemeSwitch = ({ isDark, toggleTheme }) => {
           transform: translateY(-50%);
         }
       `}</style>
-      
+
       <label className="theme-switch">
-        <input 
-          type="checkbox" 
-          className="theme-switch__checkbox" 
+        <input
+          type="checkbox"
+          className="theme-switch__checkbox"
           checked={isDark}
           onChange={toggleTheme}
         />
@@ -453,7 +425,7 @@ const Navbar = ({ toggleTheme, isDark }) => {
           <a href="#projects" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Projetos</a>
           <a href="#about" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Sobre</a>
           <a href="#timeline" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Jornada</a>
-          
+
           <div className="flex items-center">
             <ThemeSwitch isDark={isDark} toggleTheme={toggleTheme} />
           </div>
@@ -465,7 +437,7 @@ const Navbar = ({ toggleTheme, isDark }) => {
 
         <div className="flex items-center gap-4 md:hidden">
           <ThemeSwitch isDark={isDark} toggleTheme={toggleTheme} />
-          
+
           <button className="text-zinc-900 dark:text-zinc-100 hover:text-emerald-500 transition-colors" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -495,8 +467,8 @@ const Hero = () => {
       const i = loopNum % typingSkills.length;
       const fullText = typingSkills[i];
 
-      setText(isDeleting 
-        ? fullText.substring(0, text.length - 1) 
+      setText(isDeleting
+        ? fullText.substring(0, text.length - 1)
         : fullText.substring(0, text.length + 1)
       );
 
@@ -523,7 +495,7 @@ const Hero = () => {
             Bruno <br className="hidden md:block" />
             Andrade<span className="text-emerald-500">.</span>
           </h1>
-          
+
           <div className="h-[60px] flex items-center mb-8">
             <span className="text-xl md:text-3xl font-mono text-zinc-500 dark:text-zinc-500">
               {'>'} <span className="text-emerald-600 dark:text-emerald-500">{text}</span>
@@ -540,18 +512,18 @@ const Hero = () => {
               Ver Projetos <ArrowUpRight size={18} />
             </a>
 
-            <a 
-              href="/bruno-andrade-cv.pdf" 
-              download 
+            <a
+              href="/bruno-andrade-cv.pdf"
+              download
               className="px-8 py-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-200 font-bold rounded-sm hover:border-emerald-500/50 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all flex items-center justify-center gap-2"
             >
               <FileText size={18} /> Download CV
             </a>
 
-            <a 
-              href={portfolioData.social.github} 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              href={portfolioData.social.github}
+              target="_blank"
+              rel="noreferrer"
               className="px-8 py-4 border border-zinc-200 dark:border-zinc-800/50 text-zinc-500 dark:text-zinc-400 font-medium rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:white transition-colors flex items-center justify-center gap-2"
             >
               <Github size={18} />
@@ -590,10 +562,10 @@ const TechArsenal = () => {
             Stack tecnológica organizada por domínios de competência.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (
-            <div 
+            <div
               key={index}
               className="group bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-8 hover:border-emerald-500/50 transition-all duration-300 shadow-sm dark:shadow-none"
             >
@@ -603,11 +575,11 @@ const TechArsenal = () => {
                 </div>
                 <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-200 group-hover:text-emerald-700 dark:group-hover:text-emerald-100 transition-colors">{category.title}</h3>
               </div>
-              
+
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, sIndex) => (
-                  <span 
-                    key={sIndex} 
+                  <span
+                    key={sIndex}
                     className="px-3 py-1.5 bg-zinc-50 dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400 text-xs font-mono border border-zinc-200 dark:border-zinc-800/50 rounded-sm group-hover:border-emerald-500/30 group-hover:text-emerald-600 dark:group-hover:text-emerald-400/80 transition-colors"
                   >
                     {skill}
@@ -849,9 +821,8 @@ const BackToTop = () => {
 
   return (
     <button
-      className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-emerald-500 text-white dark:text-zinc-950 shadow-lg hover:bg-emerald-600 dark:hover:bg-emerald-400 transition-all duration-300 transform ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-      }`}
+      className={`fixed bottom-8 right-8 z-50 p-3 rounded-full bg-emerald-500 text-white dark:text-zinc-950 shadow-lg hover:bg-emerald-600 dark:hover:bg-emerald-400 transition-all duration-300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        }`}
       onClick={scrollToTop}
       aria-label="Voltar ao topo"
     >
@@ -866,7 +837,7 @@ const App = () => {
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
       setIsDark(true);
       document.documentElement.classList.add('dark');
@@ -879,7 +850,7 @@ const App = () => {
   const toggleTheme = () => {
     const newMode = !isDark;
     setIsDark(newMode);
-    
+
     if (newMode) {
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
