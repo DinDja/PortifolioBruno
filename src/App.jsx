@@ -129,18 +129,11 @@ const portfolioData = {
       link: "https://barbershopplan.netlify.app"
     },
     {
-      title: "Marineford Game",
-      category: "Action Game",
-      description: "Simulador de batalha épica com mecânicas de estratégia e combate em tempo real.",
-      tech: ["JavaScript", "Game Loop", "Canvas API"],
-      link: "https://marinefordgame.netlify.app/"
-    },
-    {
       title: "VestQuiz",
       category: "Action Game",
       description: "Plataforma de estudo para o vestibular com Quiz e simulados, ranking e dicas..",
-      tech: ["JavaScript", "Game Loop", "Canvas API"],
-      link: "https://marinefordgame.netlify.app/"
+      tech: ["React", "UI/UX Design", "Canvas API"],
+      link: "https://vestquiz.netlify.app/"
     },
     {
       title: "AcompanhaTec",
