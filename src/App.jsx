@@ -19,7 +19,9 @@ import {
   Server,
   GitBranch,
   FileText,
-  Wrench
+  Wrench,
+  Calendar,
+  Mic
 } from 'lucide-react';
 
 const skillCategories = [
@@ -165,6 +167,142 @@ const portfolioData = {
     }
   ]
 };
+
+const mediaData = [
+  {
+    event: 'Formação de gestores SISTEMA ACOMPANHATEC',
+    type: 'video',
+    title: 'Foto 1',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczO_lbR3sjRzyEjRerUrjKqYqjQxtVIgP8Y0ySDpuw4Q9pJXTiEbd95D_eJP0CB8IL5iyhh9qDX_Zr6CUr6mwBA0f-44jUHE1zEgC6QjiT6elrW2motH',
+    url: 'https://photos.google.com/share/AF1QipN3pABZ1N3WiAthVQhmcervlp-zRGprayKAHnVcdGel-03D4ywCw6PUiDhcYcyf2A/photo/AF1QipOAgsqmub7jZWUT56reeEHu52YyCUH53QC2T5lw?key=S29YY2t2aHh0NlpkcGdISVk1ZTc3cFJ2MERfdVBn',
+    album: 'https://photos.google.com/share/AF1QipN3pABZ1N3WiAthVQhmcervlp-zRGprayKAHnVcdGel-03D4ywCw6PUiDhcYcyf2A?key=S29YY2t2aHh0NlpkcGdISVk1ZTc3cFJ2MERfdVBn'
+  },
+  {
+    event: 'Formação de gestores SISTEMA ACOMPANHATEC',
+    type: 'image',
+    title: 'Foto 2',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczM4ERWbjxTqvNagIYTq4pdhPnRh_dFAx1O7l6sj-L5lCn1dS0HRGuZoYJxOAQ4J3ebeJ5rNZl7ch6fYzWf_UvdqK7V3Ef2C2ymQvB4NgcAYqcUWpemS',
+    url: 'https://photos.google.com/share/AF1QipN0PeHOvYP2q94xwQFUKdOWqa5MmmUI7pWLyeDZdOtgh3jva0_tFA32xk2xiDIUPw/photo/AF1QipMpprQn-6y130tOh8REXhZssIW8vIJyBZV9oPIn?key=SHR1T3VJazczTGozSi1PcGpoc3RHMWpZZEJpa21n',
+    album: 'https://photos.google.com/share/AF1QipN0PeHOvYP2q94xwQFUKdOWqa5MmmUI7pWLyeDZdOtgh3jva0_tFA32xk2xiDIUPw?key=SHR1T3VJazczTGozSi1PcGpoc3RHMWpZZEJpa21n'
+  },
+  {
+    event: 'Formação de gestores NTE 26 SISTEMA ACOMPANHATEC',
+    type: 'image',
+    title: 'Foto 1',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczNwL3-u88mzapRmMBFidmJdbAFe8VrCNfMEj5VOr1QAAi0TpMizo5DaRPCUZ6CzzSmtA7uMto7gP52pr-LAAWrty3FmplYAgTkFnju1rA8it1CCci8E',
+    url: 'https://photos.google.com/share/AF1QipO5zKNC0v84Jqg92UT5xY8TNm_Cqcd7ICzzq4Hz6IVNG6x-JDvoOU16sY5U8IwtIQ/photo/AF1QipPYnbFjf_J4h_GqZuCnBYD8nPzEOiVUdmyvqF_8?key=dDlBa2hJM2xuZjRIcWROb2k0RTZTRVZMbU1aUHRn',
+    album: 'https://photos.google.com/share/AF1QipO5zKNC0v84Jqg92UT5xY8TNm_Cqcd7ICzzq4Hz6IVNG6x-JDvoOU16sY5U8IwtIQ?key=dDlBa2hJM2xuZjRIcWROb2k0RTZTRVZMbU1aUHRn'
+  },
+  {
+    event: 'FIB - Fórum da internet no Brasil',
+    type: 'image',
+    title: 'Foto 1',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczNwGhmDe81iwDZZ0uYYkqJuCkxoyIiANvSfzxD4GRx_L9MeAlwOgWXaj-2yftk7yfx-PoJo9llBWiOgRDPadEoNto_Y5dw-sUoiMcwSXftfSLqEONO3',
+    url: 'https://photos.google.com/share/AF1QipOrZhfA5icg76dLNs_GQii73pYF_AHbgDfpMPCJdJ6PN8bAiI_JqnmJE8PIeEF6Fw/photo/AF1QipNPvKZyZiDBzS-sp-NrRYuBZT116A9YbhXOpCuD?key=REVTTHY4T3dpSTRqb2x4OUlLRmlyZTRseG5pdXFR',
+    album: 'https://photos.google.com/share/AF1QipOrZhfA5icg76dLNs_GQii73pYF_AHbgDfpMPCJdJ6PN8bAiI_JqnmJE8PIeEF6Fw?key=REVTTHY4T3dpSTRqb2x4OUlLRmlyZTRseG5pdXFR'
+  },
+  {
+    event: 'FIB - Fórum da internet no Brasil',
+    type: 'image',
+    title: 'Foto 2',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczPz-ABa6iMKcGYh2u1AJf3x_N8mae4gNI3zKNxWfGBHDMsbSSUYcS9W-C3Jt6TxCwq05p48_O5Lpr6jVYzVbZHvVBmErGCGzXaodefhzZnOn4YAMGmU',
+    url: 'https://photos.google.com/share/AF1QipOrZhfA5icg76dLNs_GQii73pYF_AHbgDfpMPCJdJ6PN8bAiI_JqnmJE8PIeEF6Fw/photo/AF1QipN4nME23WU1plZoX5W84MwdbCJyQIv6vUkUjoA7?key=REVTTHY4T3dpSTRqb2x4OUlLRmlyZTRseG5pdXFR',
+    album: 'https://photos.google.com/share/AF1QipOrZhfA5icg76dLNs_GQii73pYF_AHbgDfpMPCJdJ6PN8bAiI_JqnmJE8PIeEF6Fw?key=REVTTHY4T3dpSTRqb2x4OUlLRmlyZTRseG5pdXFR'
+  },
+  {
+    event: 'FIB - Fórum da internet no Brasil',
+    type: 'image',
+    title: 'Foto 3',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczPQMs2Z84OaD5D9aA3XQWXSTcCoF7KZn-29NaS2sBtR3AU6ywuE8Vri5Y6ntf5XO3PwilwytEpwh17Awx-3lkGP-wNPRmJtPU3bqXQgI2VNwu-jz2fx',
+    url: 'https://photos.google.com/share/AF1QipOrZhfA5icg76dLNs_GQii73pYF_AHbgDfpMPCJdJ6PN8bAiI_JqnmJE8PIeEF6Fw/photo/AF1QipME-1ggqBi-BVzO1QdCqv10Eb0d1HGpTIeGt5PD?key=REVTTHY4T3dpSTRqb2x4OUlLRmlyZTRseG5pdXFR',
+    album: 'https://photos.google.com/share/AF1QipOrZhfA5icg76dLNs_GQii73pYF_AHbgDfpMPCJdJ6PN8bAiI_JqnmJE8PIeEF6Fw?key=REVTTHY4T3dpSTRqb2x4OUlLRmlyZTRseG5pdXFR'
+  },
+  {
+    event: 'Congresso Sucesu',
+    type: 'image',
+    title: 'Foto 1',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczOrmHlr469wtsQgUmTHIHFajOXBMphgyiaa6iQIqrpgBndwDAi_PFL6EjXklRQJRVGJB7lu2IV8oOLUlHth9jzXNV6smMEIP2IS6pFaOK-PquIpHIgk',
+    url: 'https://photos.google.com/share/AF1QipOuDexQAWPkcOkOR4SwCEqeRQOijgrpNASEAJvX3kDaBEMTDRwYHO2d6dN8b2rkpw/photo/AF1QipO7n_yWgQkAyluRug0c8JKw1UocTUr5xwuZgLTH?key=d1pDZHAyd1hkV3RLdnBpRmlfdjBHYWczMGEzZkNR',
+    album: 'https://photos.google.com/share/AF1QipOuDexQAWPkcOkOR4SwCEqeRQOijgrpNASEAJvX3kDaBEMTDRwYHO2d6dN8b2rkpw?key=d1pDZHAyd1hkV3RLdnBpRmlfdjBHYWczMGEzZkNR'
+  },
+  {
+    event: 'Congresso Sucesu',
+    type: 'image',
+    title: 'Foto 2',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczM9HbZDPZ76eETMEqJuxq0PJ8vRkqhPXtVUej6s41AxNaNQrqTVnBYCbdTO72HXFS9UUZpMK3OjUTB9-5EbAYwwiyB3-9cmLEPllVcRDisi8_7-LF5M',
+    url: 'https://photos.google.com/share/AF1QipOuDexQAWPkcOkOR4SwCEqeRQOijgrpNASEAJvX3kDaBEMTDRwYHO2d6dN8b2rkpw/photo/AF1QipMRc5txVr9wQaKYwRS0J7hkQcH2jXt15nx8tN0D?key=d1pDZHAyd1hkV3RLdnBpRmlfdjBHYWczMGEzZkNR',
+    album: 'https://photos.google.com/share/AF1QipOuDexQAWPkcOkOR4SwCEqeRQOijgrpNASEAJvX3kDaBEMTDRwYHO2d6dN8b2rkpw?key=d1pDZHAyd1hkV3RLdnBpRmlfdjBHYWczMGEzZkNR'
+  },
+  {
+    event: 'Congresso Sucesu',
+    type: 'image',
+    title: 'Foto 3',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczNnQnaTuOwe6NzUQFPwtyfTRoTblQoJR1VjlA5rcHqw0J4KwLzXBE6N9aWcblhEnttjHu9HsS_GcFOR_kXRfpWmidvmzdgKyDiX8F1WVbLX4hemJv1l',
+    url: 'https://photos.google.com/share/AF1QipOuDexQAWPkcOkOR4SwCEqeRQOijgrpNASEAJvX3kDaBEMTDRwYHO2d6dN8b2rkpw/photo/AF1QipPMjbt3Y05Kd8zt3juaeJMaH6pIqyZVdmuoqo-H?key=d1pDZHAyd1hkV3RLdnBpRmlfdjBHYWczMGEzZkNR',
+    album: 'https://photos.google.com/share/AF1QipOuDexQAWPkcOkOR4SwCEqeRQOijgrpNASEAJvX3kDaBEMTDRwYHO2d6dN8b2rkpw?key=d1pDZHAyd1hkV3RLdnBpRmlfdjBHYWczMGEzZkNR'
+  },
+  {
+    event: 'BTX 2025',
+    type: 'image',
+    title: 'Foto 1',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczMdQq4l2IZ8TVb5HYWhPfoGou2UnaTF6uXu3a7o5xUMMu7A5XNzcBGgeOUwJHJhbrqvOBYvnSGUFtYk8bK0-pnaEL-S37-PJ9UdirHYrGtOGLRXfh8z',
+    url: 'https://photos.google.com/share/AF1QipPN8bn968Yvoh2YR4WdDbmLRRCrloHExgrzaYrQ52imHpnwG--bcuLaAe6bYIDGWQ/photo/AF1QipMAnpjPbNlwqr9GO0tfLSd_gjIk7Ghkf_TeUxDY?key=UkFtamM5dXpMdF94YVBnMUJlVDBtRGlJTC1FeU9n',
+    album: 'https://photos.google.com/share/AF1QipPN8bn968Yvoh2YR4WdDbmLRRCrloHExgrzaYrQ52imHpnwG--bcuLaAe6bYIDGWQ?key=UkFtamM5dXpMdF94YVBnMUJlVDBtRGlJTC1FeU9n'
+  },
+  {
+    event: 'BTX 2025',
+    type: 'image',
+    title: 'Foto 2',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczNuVg8x0n106YljVQ_r5uwmZKK54kYYgYrN1CEvFJPig-9YLFBNTZdd807C1GvSwZB8wan1Xa1pXE2IdjdgtIVU-vFpZrhtTwDOJ8MUCAe8VDSqs0yw',
+    url: 'https://photos.google.com/share/AF1QipPN8bn968Yvoh2YR4WdDbmLRRCrloHExgrzaYrQ52imHpnwG--bcuLaAe6bYIDGWQ/photo/AF1QipMNQiXrxrFVYrRZvp_uMwlNlAw5rP7jxbLjgx9l?key=UkFtamM5dXpMdF94YVBnMUJlVDBtRGlJTC1FeU9n',
+    album: 'https://photos.google.com/share/AF1QipPN8bn968Yvoh2YR4WdDbmLRRCrloHExgrzaYrQ52imHpnwG--bcuLaAe6bYIDGWQ?key=UkFtamM5dXpMdF94YVBnMUJlVDBtRGlJTC1FeU9n'
+  },
+  {
+    event: 'BTX 2025',
+    type: 'image',
+    title: 'Foto 3',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczNl9MhhmWjWxcFxt_6KHj-Y5e8YTS8PQzuBXrqEqkW57ZtIMfAZEWQonNzH3ZRnLJMv_pSkWX0TkdEjxCpGSyDJMjKteSKu2F5Bh9rRBKWRjnuGPKJF',
+    url: 'https://photos.google.com/share/AF1QipPN8bn968Yvoh2YR4WdDbmLRRCrloHExgrzaYrQ52imHpnwG--bcuLaAe6bYIDGWQ/photo/AF1QipMTnXd_3pkj_-6aLg8n03UcAO8E72sEOMPh_BgQ?key=UkFtamM5dXpMdF94YVBnMUJlVDBtRGlJTC1FeU9n',
+    album: 'https://photos.google.com/share/AF1QipPN8bn968Yvoh2YR4WdDbmLRRCrloHExgrzaYrQ52imHpnwG--bcuLaAe6bYIDGWQ?key=UkFtamM5dXpMdF94YVBnMUJlVDBtRGlJTC1FeU9n'
+  },
+  {
+    event: 'Formação de coordenadores pedagógicos - sistema Acompanhatec',
+    type: 'image',
+    title: 'Foto 1',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczPdZbQwLdDZBtRuPuPSzWyORKI6dReJX9QdNHr-l7laH_xP4ca5evsLMIrzfSnI15_hFV2e7xINckcxXs2L9TcfjnEL8QlAMvzSGAPVFbl7b0Cvs5_T',
+    url: 'https://photos.google.com/share/AF1QipMrM11711PMsIryzX_XuBY9PZyH-GqMkk0wkbSJ5O3b3KqHZBd4wQhcHxQo6KNSbg/photo/AF1QipMejf70ydSsTl4hYsHIcy4OwJgu-CJE0fxnHWPy?key=eFBqM3o5dlNqQ1JjZDBzaWJVbGVjWTZGQ1Vub1Nn',
+    album: 'https://photos.google.com/share/AF1QipMrM11711PMsIryzX_XuBY9PZyH-GqMkk0wkbSJ5O3b3KqHZBd4wQhcHxQo6KNSbg?key=eFBqM3o5dlNqQ1JjZDBzaWJVbGVjWTZGQ1Vub1Nn'
+  },
+  {
+    event: 'Formação de coordenadores pedagógicos - sistema Acompanhatec',
+    type: 'image',
+    title: 'Foto 2',
+    thumbnail: 'https://lh3.googleusercontent.com/pw/AP1GczPVx3M-FQd93IDe5mPzPLy4o1c4p0fg0UZaKPaN5JqNiB86b9yHHgqCn-3G6MY4WrFlH36-Bi8HJAj0zWOhpfSua62VQJ7L8JqQ2KxDTT9kVHyRgypV',
+    url: 'https://photos.google.com/share/AF1QipMrM11711PMsIryzX_XuBY9PZyH-GqMkk0wkbSJ5O3b3KqHZBd4wQhcHxQo6KNSbg/photo/AF1QipMp7WE8KpEv914D7Ih9mHYsgiEuwfJxG_gMyvPo?key=eFBqM3o5dlNqQ1JjZDBzaWJVbGVjWTZGQ1Vub1Nn',
+    album: 'https://photos.google.com/share/AF1QipMrM11711PMsIryzX_XuBY9PZyH-GqMkk0wkbSJ5O3b3KqHZBd4wQhcHxQo6KNSbg?key=eFBqM3o5dlNqQ1JjZDBzaWJVbGVjWTZGQ1Vub1Nn'
+  }
+];
+
+const eventsData = [
+  {
+    year: '2024',
+    title: 'Campus Party Brasil',
+    role: 'Palestrante',
+    description: 'Apresentação no palco principal sobre Arquitetura Escalável e o uso de Next.js em grandes sistemas.'
+  },
+  {
+    year: '2023',
+    title: 'Web Summit Rio',
+    role: 'Participante',
+    description: 'Imersão em novas tendências de desenvolvimento de software e networking com líderes técnicos.'
+  },
+  {
+    year: '2022',
+    title: 'Hackathon Ethereum SP',
+    role: 'Mentor Técnico',
+    description: 'Mentoria para desenvolvedores iniciantes na criação de smart contracts e interfaces descentralizadas.'
+  }
+];
 
 const ThemeSwitch = ({ isDark, toggleTheme }) => {
   return (
@@ -418,6 +556,8 @@ const Navbar = ({ toggleTheme, isDark }) => {
           <a href="#projects" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Projetos</a>
           <a href="#about" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Sobre</a>
           <a href="#timeline" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Jornada</a>
+          <a href="#events" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Eventos</a>
+          <a href="#media" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Galeria</a>
 
           <div className="flex items-center">
             <ThemeSwitch isDark={isDark} toggleTheme={toggleTheme} />
@@ -442,6 +582,8 @@ const Navbar = ({ toggleTheme, isDark }) => {
           <a href="#projects" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Projetos</a>
           <a href="#about" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Sobre</a>
           <a href="#timeline" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Jornada</a>
+          <a href="#events" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Eventos</a>
+          <a href="#media" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Galeria</a>
           <a href="#contact" className="text-emerald-500 font-bold" onClick={() => setIsOpen(false)}>Contato</a>
         </div>
       )}
@@ -481,47 +623,78 @@ const Hero = () => {
   }, [text, isDeleting, loopNum, typingSpeed]);
 
   return (
-    <section className="min-h-screen flex items-center pt-20 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <div className="max-w-4xl">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-[1.1] mb-4 transition-colors duration-300">
-            Bruno <br className="hidden md:block" />
-            Andrade<span className="text-emerald-500">.</span>
-          </h1>
+    <section className="min-h-screen flex items-center pt-20 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300 overflow-hidden relative">
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+          
+          {/* Coluna da Esquerda: Textos e Botões */}
+          <div className="w-full lg:w-3/5">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight leading-[1.1] mb-4 transition-colors duration-300">
+              Bruno <br className="hidden md:block" />
+              Andrade<span className="text-emerald-500">.</span>
+            </h1>
 
-          <div className="h-[60px] flex items-center mb-8">
-            <span className="text-xl md:text-3xl font-mono text-zinc-500 dark:text-zinc-500">
-              {'>'} <span className="text-emerald-600 dark:text-emerald-500">{text}</span>
-              <span className="animate-pulse ml-1 text-emerald-500">|</span>
-            </span>
+            <div className="h-[60px] flex items-center mb-8">
+              <span className="text-xl md:text-3xl font-mono text-zinc-500 dark:text-zinc-500">
+                {'>'} <span className="text-emerald-600 dark:text-emerald-500">{text}</span>
+                <span className="animate-pulse ml-1 text-emerald-500">|</span>
+              </span>
+            </div>
+
+            <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-12 transition-colors duration-300">
+              {portfolioData.bio}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="#projects" className="px-8 py-4 bg-emerald-500 text-white dark:text-zinc-950 font-bold rounded-sm hover:bg-emerald-600 dark:hover:bg-emerald-400 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+                Ver Projetos <ArrowUpRight size={18} />
+              </a>
+
+              <a
+                href="/bruno-andrade-cv.pdf"
+                download
+                className="px-8 py-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-200 font-bold rounded-sm hover:border-emerald-500/50 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all flex items-center justify-center gap-2"
+              >
+                <FileText size={18} /> Download CV
+              </a>
+
+              <a
+                href={portfolioData.social.github}
+                target="_blank"
+                rel="noreferrer"
+                className="px-8 py-4 border border-zinc-200 dark:border-zinc-800/50 text-zinc-500 dark:text-zinc-400 font-medium rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:white transition-colors flex items-center justify-center gap-2"
+              >
+                <Github size={18} />
+              </a>
+            </div>
           </div>
 
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed mb-12 transition-colors duration-300">
-            {portfolioData.bio}
-          </p>
+          {/* Coluna da Direita: Imagem Mesclada */}
+        <div className="hidden lg:flex w-full lg:w-2/5 justify-end items-center relative pointer-events-none select-none">
+            <div className="relative w-[400px] h-[500px]">
+              
+              
+              <img
+              src="/Media/BRUNO.png"
+                alt="Bruno Andrade"
+                className="w-full h-full object-cover rounded-lg shadow-2xl"
+              />
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#projects" className="px-8 py-4 bg-emerald-500 text-white dark:text-zinc-950 font-bold rounded-sm hover:bg-emerald-600 dark:hover:bg-emerald-400 transition-colors flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
-              Ver Projetos <ArrowUpRight size={18} />
-            </a>
+              
+              <div className="absolute bottom-16 -left-8 z-20 flex items-center gap-4 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-md border border-zinc-200 dark:border-zinc-700/50 px-5 py-3 rounded-sm shadow-xl pointer-events-auto">
+                <div className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-zinc-900 dark:text-zinc-100 tracking-wide uppercase">Bruno Andrade</p>
+                  <p className="text-xs font-mono text-emerald-600 dark:text-emerald-400">Tech Lead & Architect</p>
+                </div>
+              </div>
 
-            <a
-              href="/bruno-andrade-cv.pdf"
-              download
-              className="px-8 py-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-200 font-bold rounded-sm hover:border-emerald-500/50 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all flex items-center justify-center gap-2"
-            >
-              <FileText size={18} /> Download CV
-            </a>
-
-            <a
-              href={portfolioData.social.github}
-              target="_blank"
-              rel="noreferrer"
-              className="px-8 py-4 border border-zinc-200 dark:border-zinc-800/50 text-zinc-500 dark:text-zinc-400 font-medium rounded-sm hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:white transition-colors flex items-center justify-center gap-2"
-            >
-              <Github size={18} />
-            </a>
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -685,6 +858,133 @@ const About = () => {
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ProfessionalEvents = () => {
+  return (
+    <section id="events" className="py-32 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 transition-colors">Eventos & Participações</h2>
+          <div className="h-1 w-20 bg-emerald-500"></div>
+          <p className="mt-4 text-zinc-600 dark:text-zinc-500 max-w-2xl text-lg transition-colors">
+            Conferências, palestras e hackathons que impulsionaram meu crescimento e networking.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {eventsData.map((item, index) => (
+            <div key={index} className="group bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 p-8 hover:border-emerald-500/50 transition-all duration-300 shadow-sm dark:shadow-none relative overflow-hidden">
+              <div className="absolute top-0 right-0 p-6 opacity-5 dark:opacity-10 group-hover:scale-150 transition-transform duration-500">
+                <Mic size={100} />
+              </div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <Calendar className="text-emerald-500" size={20} />
+                  <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm font-bold">{item.year}</span>
+                </div>
+                <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-100 mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">{item.title}</h3>
+                <div className="text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-4 inline-block border-b-2 border-emerald-500/30 pb-1">
+                  {item.role}
+                </div>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ExperienceMedia = () => {
+  const albumsByUrl = mediaData.reduce((acc, item) => {
+    const key = item.album || item.url;
+
+    if (!acc[key]) {
+      acc[key] = {
+        event: item.event,
+        albumUrl: key,
+        photos: []
+      };
+    }
+
+    acc[key].photos.push(item);
+    return acc;
+  }, {});
+
+  const albums = Object.values(albumsByUrl);
+  const eventCountMap = albums.reduce((acc, album) => {
+    acc[album.event] = (acc[album.event] || 0) + 1;
+    return acc;
+  }, {});
+
+  const eventIndexMap = {};
+
+  return (
+    <section id="media" className="py-32 bg-zinc-100 dark:bg-zinc-900 border-y border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 transition-colors">Galeria Visual</h2>
+          <div className="h-1 w-20 bg-emerald-500"></div>
+          <p className="mt-4 text-zinc-600 dark:text-zinc-500 max-w-2xl text-lg transition-colors">
+            Álbuns organizados em grid para navegação rápida. Clique em qualquer card para abrir o álbum completo.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {albums.map((album) => {
+            const albumPreview = album.photos.slice(0, 4);
+            const emptySlots = Math.max(0, 4 - albumPreview.length);
+
+            eventIndexMap[album.event] = (eventIndexMap[album.event] || 0) + 1;
+
+            const albumTitle = eventCountMap[album.event] > 1
+              ? `${album.event} · Álbum ${eventIndexMap[album.event]}`
+              : album.event;
+
+            return (
+              <a
+                href={album.albumUrl}
+                key={album.albumUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group block"
+              >
+                <article className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-sm dark:shadow-none">
+                  <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-1 p-1">
+                    {albumPreview.map((photo, index) => (
+                      <img
+                        key={photo.url}
+                        src={photo.thumbnail}
+                        alt={`${albumTitle} - foto ${index + 1}`}
+                        className="h-full w-full object-cover rounded-md transition-transform duration-500 group-hover:scale-105"
+                      />
+                    ))}
+                    {Array.from({ length: emptySlots }).map((_, index) => (
+                      <div key={`empty-${index}`} className="rounded-md bg-zinc-200 dark:bg-zinc-800" />
+                    ))}
+                  </div>
+
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/50 to-transparent p-4">
+                    <h3 className="text-zinc-100 text-sm font-bold leading-snug">
+                      {albumTitle}
+                    </h3>
+                    <div className="mt-2 flex items-center justify-between text-xs text-zinc-200/90">
+                      <span>{album.photos.length} {album.photos.length > 1 ? 'fotos' : 'foto'}</span>
+                      <span className="font-semibold text-emerald-300">Abrir álbum</span>
+                    </div>
+                  </div>
+                </article>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -861,6 +1161,8 @@ const App = () => {
       <TechArsenal />
       <Timeline />
       <About />
+      <ProfessionalEvents />
+      <ExperienceMedia />
       <Projects />
       <Contact />
       <Footer />
