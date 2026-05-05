@@ -115,7 +115,7 @@ const portfolioData = {
     },
     {
       year: "2025 - 2026",
-      role: "Tech Lead",
+      role: "Desenvolvedor Fullstack",
       company: "Secretaria de Educação da Bahia",
       desc: "Liderança técnica no desenvolvimento do ecossistema AcompanhaTec. Gestão de equipe de desenvolvimento e arquitetura de infraestrutura backend para o sistema."
     },
