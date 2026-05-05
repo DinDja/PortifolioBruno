@@ -21,7 +21,11 @@ import {
   FileText,
   Wrench,
   Calendar,
-  Mic
+  Mic,
+  PlayCircle,
+  ImageOff,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 const skillCategories = [
@@ -104,7 +108,13 @@ const portfolioData = {
   },
   experience: [
     {
-      year: "2025 - Presente",
+      year: "2026 - Presente",
+      role: "Desenvolvedor Fullstack",
+      company: "Secretaria de Ciencias, Tecnologia e Inovacao da Bahia",
+      desc: "Desenvolvimento full stack de sistemas institucionais, atuando na construcao de interfaces, APIs e integracoes para produtos digitais da secretaria."
+    },
+    {
+      year: "2025 - 2026",
       role: "Tech Lead",
       company: "Secretaria de Educação da Bahia",
       desc: "Liderança técnica no desenvolvimento do ecossistema AcompanhaTec. Gestão de equipe de desenvolvimento e arquitetura de infraestrutura backend para o sistema."
@@ -303,6 +313,49 @@ const eventsData = [
     description: 'Mentoria para desenvolvedores iniciantes na criação de smart contracts e interfaces descentralizadas.'
   }
 ];
+
+const consolidatedSystemsData = [
+  {
+    title: 'Cloudspeak',
+    fileId: '187P4fCu3KvkdJUv_G4U8WIxdNWseP4ud'
+  },
+  {
+    title: 'Cloudspeak - Fluxo 2',
+    fileId: '1peUIY4GQQNWjlgh-2xjdUSibIRZ9T_tC'
+  },
+  {
+    title: 'ConectaBahia',
+    fileId: '1Mt5EUhc80a-RlIiuYHYa8_cw1c1qnyDW'
+  },
+  {
+    title: 'Hub SECTI - Sistemas Integrados',
+    fileId: '1Ask2IgHopCpgYrYFtQOs7QD91IcUp5Wx'
+  },
+  {
+    title: 'INFO.SECTI - Sistema de Informacao de Projetos',
+    fileId: '1h3x1Ag01y11fMJOaKCI3dAqWDkjDMP54'
+  },
+  {
+    title: 'Mapeamento da EPT na Bahia',
+    fileId: '1yC6IlOgDBu2_a23EEEkFr8SI_K7h2cXQ'
+  },
+  {
+    title: 'Painel Clubes',
+    fileId: '16zgLm12eaN9uGhRxJOZroTuObtx3-kpR'
+  },
+  {
+    title: 'Painel de Gestao de Contratos',
+    fileId: '1W5Qac-79ZsTeVQqCckUMCZoICH8zfQMX'
+  },
+  {
+    title: 'SECTI_BA - Sistema de Gestao de Patrimonio',
+    fileId: '1e4UV-UCSpf6WdYW-tcVPQt5IGMJayDhY'
+  }
+].map((system) => ({
+  ...system,
+  watchUrl: `https://drive.google.com/file/d/${system.fileId}/view`,
+  embedUrl: `https://drive.google.com/file/d/${system.fileId}/preview`
+}));
 
 const ThemeSwitch = ({ isDark, toggleTheme }) => {
   return (
@@ -554,6 +607,7 @@ const Navbar = ({ toggleTheme, isDark }) => {
 
         <div className="hidden md:flex items-center space-x-8">
           <a href="#projects" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Projetos</a>
+          <a href="#sistemas" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Sistemas</a>
           <a href="#about" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Sobre</a>
           <a href="#timeline" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Jornada</a>
           <a href="#events" className="text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">Eventos</a>
@@ -580,6 +634,7 @@ const Navbar = ({ toggleTheme, isDark }) => {
       {isOpen && (
         <div className="absolute top-20 left-0 w-full bg-white dark:bg-zinc-950 border-b border-zinc-200 dark:border-zinc-800 p-6 md:hidden flex flex-col space-y-4 shadow-xl">
           <a href="#projects" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Projetos</a>
+          <a href="#sistemas" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Sistemas</a>
           <a href="#about" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Sobre</a>
           <a href="#timeline" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Jornada</a>
           <a href="#events" className="text-zinc-600 dark:text-zinc-400 hover:text-emerald-500" onClick={() => setIsOpen(false)}>Eventos</a>
@@ -903,6 +958,139 @@ const ProfessionalEvents = () => {
   );
 };
 
+const ConsolidatedSystems = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlides = consolidatedSystemsData.length;
+
+  const goToPrev = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const currentSystem = consolidatedSystemsData[currentSlide];
+
+  return (
+    <section id="sistemas" className="py-32 bg-zinc-100 dark:bg-zinc-900 border-y border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-4 transition-colors">Sistemas Consolidados</h2>
+          <div className="h-1 w-20 bg-emerald-500"></div>
+          <p className="mt-4 text-zinc-600 dark:text-zinc-500 max-w-3xl text-lg transition-colors">
+            Demonstracoes em video dos sistemas consolidados. Os videos sao carregados diretamente da pasta no Google Drive.
+          </p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <article className="group bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden hover:border-emerald-500/50 transition-all duration-300 shadow-sm dark:shadow-none">
+            <div className="aspect-video bg-zinc-200 dark:bg-zinc-800">
+              <iframe
+                key={currentSystem.fileId}
+                src={currentSystem.embedUrl}
+                title={currentSystem.title}
+                className="w-full h-full"
+                allow="autoplay"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="p-6 flex items-center justify-between gap-4">
+              <h3 className="text-zinc-900 dark:text-zinc-100 font-bold leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                {currentSystem.title}
+              </h3>
+              <a
+                href={currentSystem.watchUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 whitespace-nowrap"
+              >
+                <PlayCircle size={16} /> Abrir
+              </a>
+            </div>
+          </article>
+
+          <div className="mt-6 flex items-center justify-between gap-4">
+            <button
+              type="button"
+              onClick={goToPrev}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-sm border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              aria-label="Video anterior"
+            >
+              <ChevronLeft size={18} /> Anterior
+            </button>
+
+            <div className="flex items-center gap-2">
+              {consolidatedSystemsData.map((system, index) => (
+                <button
+                  key={system.fileId}
+                  type="button"
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2.5 w-2.5 rounded-full transition-all ${index === currentSlide ? 'bg-emerald-500 w-6' : 'bg-zinc-300 dark:bg-zinc-700 hover:bg-zinc-400 dark:hover:bg-zinc-600'}`}
+                  aria-label={`Ir para video ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={goToNext}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-sm border border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-200 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+              aria-label="Proximo video"
+            >
+              Proximo <ChevronRight size={18} />
+            </button>
+          </div>
+
+          <p className="mt-3 text-center text-xs text-zinc-500 dark:text-zinc-500">
+            {currentSlide + 1} / {totalSlides}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const MediaPreviewImage = ({ src, alt }) => {
+  const [hasError, setHasError] = useState(false);
+
+  if (!src || hasError) {
+    return (
+      <div className="h-full w-full rounded-md bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-zinc-500 dark:text-zinc-500">
+        <ImageOff size={16} />
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      referrerPolicy="no-referrer"
+      onError={() => setHasError(true)}
+      className="h-full w-full object-cover rounded-md transition-transform duration-500 group-hover:scale-105"
+    />
+  );
+};
+
+const getGalleryPreviewLayoutClass = (count, index) => {
+  if (count <= 1) {
+    return 'col-span-2 row-span-2';
+  }
+
+  if (count === 2) {
+    return 'row-span-2';
+  }
+
+  if (count === 3) {
+    return index === 0 ? 'row-span-2' : '';
+  }
+
+  return '';
+};
+
 const ExperienceMedia = () => {
   const albumsByUrl = mediaData.reduce((acc, item) => {
     const key = item.album || item.url;
@@ -941,7 +1129,7 @@ const ExperienceMedia = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {albums.map((album) => {
             const albumPreview = album.photos.slice(0, 4);
-            const emptySlots = Math.max(0, 4 - albumPreview.length);
+            const previewCount = albumPreview.length;
 
             eventIndexMap[album.event] = (eventIndexMap[album.event] || 0) + 1;
 
@@ -960,15 +1148,15 @@ const ExperienceMedia = () => {
                 <article className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 shadow-sm dark:shadow-none">
                   <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-1 p-1">
                     {albumPreview.map((photo, index) => (
-                      <img
+                      <div
                         key={photo.url}
-                        src={photo.thumbnail}
-                        alt={`${albumTitle} - foto ${index + 1}`}
-                        className="h-full w-full object-cover rounded-md transition-transform duration-500 group-hover:scale-105"
-                      />
-                    ))}
-                    {Array.from({ length: emptySlots }).map((_, index) => (
-                      <div key={`empty-${index}`} className="rounded-md bg-zinc-200 dark:bg-zinc-800" />
+                        className={getGalleryPreviewLayoutClass(previewCount, index)}
+                      >
+                        <MediaPreviewImage
+                          src={photo.thumbnail}
+                          alt={`${albumTitle} - foto ${index + 1}`}
+                        />
+                      </div>
                     ))}
                   </div>
 
@@ -1162,6 +1350,7 @@ const App = () => {
       <Timeline />
       <About />
       <ProfessionalEvents />
+      <ConsolidatedSystems />
       <ExperienceMedia />
       <Projects />
       <Contact />
